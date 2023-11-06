@@ -1,0 +1,664 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "75435e5c-3998-4000-bfac-e0a893b515e4",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Security Scorecard - 1.0.0",
+      "description": "Security Scorecard Platform combines several threat intelligence sources to provide in-depth insights on threat hosts and attack infrastructure.This connector facilitates automated operations to pull off real-time host configuration analysis to come up with actionable threat intelligence that is vital in detection, mitigation, and remediation.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "security-scorecard"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "1daca47a-bd89-4966-8f32-38a49aaf6c6c",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieves a list companies of from security scorecard.",
+          "name": "Get All Companies Portfolio",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/f2211f57-e0e9-430d-9c7c-0e48bab5bc34",
+          "steps": [
+            {
+              "uuid": "f2211f57-e0e9-430d-9c7c-0e48bab5bc34",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ec4bf6d1-585d-48d8-8032-b1a2b7b5fb7f",
+                "title": "Security Scorecard: Get All Companies Portfolio",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "34259a7a-4c5b-4809-8ab9-b964a26ef28e",
+              "@type": "WorkflowStep",
+              "name": "Get All Companies Portfolio",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "portfolio_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_all_companies_portfolio",
+                "operationTitle": "Get All Companies Portfolio",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "bc1642b6-b11b-44c0-8299-91cb7f11dbca",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Companies Portfolio",
+              "sourceStep": "/api/3/workflow_steps/f2211f57-e0e9-430d-9c7c-0e48bab5bc34",
+              "targetStep": "/api/3/workflow_steps/34259a7a-4c5b-4809-8ab9-b964a26ef28e"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "26a3605d-ce05-4efb-b8ad-47759d1259a3",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieves a list portfolio of from security scorecard.",
+          "name": "Get List of Portfolio",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b8934ef2-2aca-41c4-b1f9-23dfb23b626c",
+          "steps": [
+            {
+              "uuid": "b8934ef2-2aca-41c4-b1f9-23dfb23b626c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "9cb76698-f0d7-460f-93c8-e7cbc89be9bc",
+                "title": "Security Scorecard: Get List of Portfolio",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "da7a753c-8946-4f1e-bd71-9aca187a5bfd",
+              "@type": "WorkflowStep",
+              "name": "Get List of Portfolio",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_list_of_portfolio",
+                "operationTitle": "Get List of Portfolio",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d398d7e4-eb4c-4906-8b12-222905dbac5d",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get List of Portfolio",
+              "sourceStep": "/api/3/workflow_steps/b8934ef2-2aca-41c4-b1f9-23dfb23b626c",
+              "targetStep": "/api/3/workflow_steps/da7a753c-8946-4f1e-bd71-9aca187a5bfd"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "1518b7f9-5a4d-4db0-84ce-7b0ba2cc6b8c",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieve company overall score from security scorecard.",
+          "name": "Get Company Score",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d39e81a5-2f38-472f-89fb-09d8803e3c23",
+          "steps": [
+            {
+              "uuid": "d39e81a5-2f38-472f-89fb-09d8803e3c23",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "5f226108-34cb-44d4-b5f2-31dd232a6f64",
+                "title": "Security Scorecard: Get Company Score",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "045f2a28-ff7b-42bc-9615-c0db9b9b75d1",
+              "@type": "WorkflowStep",
+              "name": "Get Company Score",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "domain": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_company_score",
+                "operationTitle": "Get Company Score",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "e34c7826-74f8-4c52-8905-f1d2b01e878a",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Company Score",
+              "sourceStep": "/api/3/workflow_steps/d39e81a5-2f38-472f-89fb-09d8803e3c23",
+              "targetStep": "/api/3/workflow_steps/045f2a28-ff7b-42bc-9615-c0db9b9b75d1"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ace3d8e2-0424-4d10-b9a8-ac59b42e85f5",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieve company factor score from security scorecard.",
+          "name": "Get Company Factor Score",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1dd18548-c809-47c7-bb2d-e24561859a4d",
+          "steps": [
+            {
+              "uuid": "1dd18548-c809-47c7-bb2d-e24561859a4d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "11ea36e6-cd68-4cbc-8c56-8033aa0c7285",
+                "title": "Security Scorecard: Get Company Factor Score",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "b783b2cb-bb96-4b9b-b24f-e380904bc1be",
+              "@type": "WorkflowStep",
+              "name": "Get Company Factor Score",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "domain": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_company_factor_score",
+                "operationTitle": "Get Company Factor Score",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "46b97723-2a93-40c5-9eee-7f19ed7e09b5",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Company Factor Score",
+              "sourceStep": "/api/3/workflow_steps/1dd18548-c809-47c7-bb2d-e24561859a4d",
+              "targetStep": "/api/3/workflow_steps/b783b2cb-bb96-4b9b-b24f-e380904bc1be"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "80c980f2-34f5-4875-b59a-9f507cb01e3f",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieve company history score from security scorecard.",
+          "name": "Get Company History Score",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/965d51c9-6434-42da-ad45-b204a6eb3b16",
+          "steps": [
+            {
+              "uuid": "965d51c9-6434-42da-ad45-b204a6eb3b16",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ac3b66a5-6d22-41f9-ba92-a4a92c38db2d",
+                "title": "Security Scorecard: Get Company History Score",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "57bd4c72-a1bc-4753-bd1b-72e073001161",
+              "@type": "WorkflowStep",
+              "name": "Get Company History Score",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "domain": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_company_history_score",
+                "operationTitle": "Get Company History Score",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "469e0b4e-22c2-4755-a4ae-18ac5830984e",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Company History Score",
+              "sourceStep": "/api/3/workflow_steps/965d51c9-6434-42da-ad45-b204a6eb3b16",
+              "targetStep": "/api/3/workflow_steps/57bd4c72-a1bc-4753-bd1b-72e073001161"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "5baf04d3-5974-4a48-ac3a-2ed00bdc8202",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieve company history factor score from security scorecard.",
+          "name": "Get Company History Factor Score",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d43cf7c8-1072-4a9f-a8e8-a11744302041",
+          "steps": [
+            {
+              "uuid": "d43cf7c8-1072-4a9f-a8e8-a11744302041",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "538b4cbe-eeb6-4671-a1af-ffe32aec1b5d",
+                "title": "Security Scorecard: Get Company History Factor Score",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "200bdc10-925f-4a4b-9e41-98ae7f2cbbcc",
+              "@type": "WorkflowStep",
+              "name": "Get Company History Factor Score",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "domain": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_company_history_factor_score",
+                "operationTitle": "Get Company History Factor Score",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "07984a21-8cd5-4ec2-9dc8-5b6bcb49cbf9",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Company History Factor Score",
+              "sourceStep": "/api/3/workflow_steps/d43cf7c8-1072-4a9f-a8e8-a11744302041",
+              "targetStep": "/api/3/workflow_steps/200bdc10-925f-4a4b-9e41-98ae7f2cbbcc"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c1780ec5-d2ab-44dd-af97-ebe5576f7630",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieve list alerts triggered from security scorecard.",
+          "name": "Get Alert List",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7108cb9a-5307-402b-95fd-48f14e999595",
+          "steps": [
+            {
+              "uuid": "7108cb9a-5307-402b-95fd-48f14e999595",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "bc48bb82-0e7a-486e-95dc-dbe24cf20c85",
+                "title": "Security Scorecard: Get Alert List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "63e2902b-5a04-4cff-b70d-5d8d92b04c1d",
+              "@type": "WorkflowStep",
+              "name": "Get Alert List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "email_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_alert_list",
+                "operationTitle": "Get Alert List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "b10dd6cc-254b-49b0-97e7-802ceda6b3a2",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alert List",
+              "sourceStep": "/api/3/workflow_steps/7108cb9a-5307-402b-95fd-48f14e999595",
+              "targetStep": "/api/3/workflow_steps/63e2902b-5a04-4cff-b70d-5d8d92b04c1d"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "19a445d0-5d54-4199-98de-6653acf9c3b8",
+          "collection": "/api/3/workflow_collections/75435e5c-3998-4000-bfac-e0a893b515e4",
+          "triggerLimit": null,
+          "description": "Retrieve ransomware details triggered from security scorecard.",
+          "name": "Get Ransomware Details  ",
+          "tag": "#Security Scorecard",
+          "recordTags": [
+            "security-scorecard"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2b71eb47-49ee-436b-90eb-a269c81f9446",
+          "steps": [
+            {
+              "uuid": "2b71eb47-49ee-436b-90eb-a269c81f9446",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "e9da33fa-8f40-4375-b961-6ee0ae484671",
+                "title": "Security Scorecard: Get Ransomware Details  ",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "36d46835-9c9e-44d5-88b3-f10171a7d63d",
+              "@type": "WorkflowStep",
+              "name": "Get Ransomware Details  ",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Security Scorecard",
+                "config": "''",
+                "params": {
+                  "ransomware_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "security-scorecard",
+                "operation": "get_ransomware_details",
+                "operationTitle": "Get Ransomware Details  ",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "bd7cbafc-65d7-48be-95b2-e2e1ca9ae219",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Ransomware Details  ",
+              "sourceStep": "/api/3/workflow_steps/2b71eb47-49ee-436b-90eb-a269c81f9446",
+              "targetStep": "/api/3/workflow_steps/36d46835-9c9e-44d5-88b3-f10171a7d63d"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
