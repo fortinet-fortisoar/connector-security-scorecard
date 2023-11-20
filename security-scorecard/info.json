@@ -9,7 +9,7 @@
   "cs_compatible": true,
   "cs_approved": false,
   "category": "Threat Intelligence",
-  "help_online": "https://github.com/jitesh-spryiq/connector-security-scorecard/blob/develop/docs/SecurityScorecardConnectorDoc.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-security-scorecard/blob/release/1.0.0/docs/SecurityScorecardConnectorDoc.md",
   "configuration": {
     "fields": [
       {
