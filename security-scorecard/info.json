@@ -1,334 +1,334 @@
 {
-    "name": "security-scorecard",
-    "version": "1.0.0",
-    "label": "Security Scorecard",
-    "description": "Security Scorecard Platform combines several threat intelligence sources to provide in-depth insights on threat hosts and attack infrastructure.This connector facilitates automated operations to pull off real-time host configuration analysis to come up with actionable threat intelligence that is vital in detection, mitigation, and remediation.",
-    "publisher": "spryIQ.co",
-    "icon_small_name": "small.png",
-    "icon_large_name": "large.png",
-    "cs_compatible": true,
-    "cs_approved": false,
-    "category": "Threat Intelligence",
-    "help_online": "https://github.com/jitesh-spryiq/connector-security-scorecard/blob/develop/docs/SecurityScorecardConnectorDoc.md",
-    "configuration": {
-        "fields": [
-            {
-                "title": "Server URL",
-                "type": "text",
-                "description": "Specify the URL of the security scorecard server to connect and perform automated operations.",
-                "tooltip": "Specify the URL of the security scorecard server to connect and perform automated operations.",
-                "name": "server_url",
-                "required": true,
-                "visible": true,
-                "editable": true,
-                "value": "",
-                "placeholder": "e.g:https://api.securityscorecard.io or api.securityscorecard.io"
-            },
-            {
-                "title": "API key",
-                "type": "password",
-                "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
-                "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
-                "name": "api_key",
-                "required": true,
-                "visible": true,
-                "editable": true,
-                "value": "",
-                "placeholder": "e.g:yMlmghnnE9CApiAwLNHJFlN0VofZVnUnaaaHT"
-            }
-        ]
-    },
-    "operations": [
-        {
-            "title": "Get All Companies Portfolio",
-            "operation": "get_all_companies_portfolio",
-            "description": "Retrieves a list companies of from security scorecard.",
-            "annotation": "get_all_companies_portfolio",
-            "category": "investigation",
-            "parameters": [
-                {
-                    "title": "Portfolio ID",
-                    "type": "text",
-                    "name": "portfolio_id",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:55e448c4e4b0c986fd66ff33312",
-                    "description": "Specify the portfolio unique id retrieve.",
-                    "tooltip": "Specify the portfolio unique id retrieve."
-                }
-            ],
-            "output_schema": [
-                {
-                "SecurityScorecard": {
-                    "Portfolio": {
-                        "Company": {
-                                "domain": "",
-                                "grade": "",
-                                "grade_url": "",
-                                "industry": "",
-                                "is_custom_vendor": "",
-                                "last30days_score_change": "",
-                                "name": "",
-                                "score": "",
-                                "size": ""
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "title": "Get List of Portfolio",
-            "operation": "get_list_of_portfolio",
-            "description": "Retrieves a list portfolio of from security scorecard.",
-            "annotation": "get_list_of_portfolio",
-            "category": "investigation",
-            "parameters": [],
-            "output_schema": [
-                {
-                    "id": "",
-		            "name": "",
-                    "privacy": "",
-                    "read_only": "",
-                    "created_at": "",
-                    "is_public": ""
-                }
-            ]
-        },
-        {
-            "title": "Get Company Score",
-            "operation": "get_company_score",
-            "description": "Retrieve company overall score from security scorecard.",
-            "annotation": "get_company_score",
-            "category": "investigation",
-            "parameters": [
-                 {
-                    "title": "Domain",
-                    "type": "text",
-                    "name": "domain",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the domain of a company in SecurityScorecard.",
-                    "tooltip": "Specify the domain of a company  in SecurityScorecard."
-                }
-            ],
-            "output_schema": [
-                {
-                "SecurityScorecard": {
-                    "Company": {
-                        "Score": {
-                            "created_at": "",
-                            "domain": "",
-                            "grade": "",
-                            "grade_url": "",
-                            "industry": "",
-                            "last30day_score_change": "",
-                            "name": "",
-                            "score": "",
-                            "size": "",
-                            "tags": []
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "title": "Get Company Factor Score",
-            "operation": "get_company_factor_score",
-            "description": "Retrieve company factor score from security scorecard.",
-            "annotation": "get_company_factor_score",
-            "category": "investigation",
-            "parameters": [
-                 {
-                    "title": "Domain",
-                    "type": "text",
-                    "name": "domain",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the domain of a company in Security Scorecard.",
-                    "tooltip": "Specify the domain of a company in SecurityScorecard."
-                }
-            ],
-            "output_schema": [
-                {
-                    "SecurityScorecard": {
-                        "Company": {
-                            "Factor": [
-                                {
-                                    "grade": "",
-                                    "grade_url": "",
-                                    "issue_summary": [
-                                        {
-                                            "count": "",
-                                            "detail_url": "",
-                                            "severity": "",
-                                            "total_score_impact": "",
-                                            "type": ""
-                                        }
-                                    ],
-                                    "name": "",
-                                    "score": ""
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "title": "Get Company History Score",
-            "operation": "get_company_history_score",
-            "description": "Retrieve company history score from security scorecard.",
-            "annotation": "get_company_history_score",
-            "category": "investigation",
-            "parameters": [
-                 {
-                    "title": "Domain",
-                    "type": "text",
-                    "name": "domain",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the domain of a company in SecurityScorecard.",
-                    "tooltip": "Specify the domain of a company in SecurityScorecard."
-                }
-            ],
-            "output_schema": [
-               {
-                "SecurityScorecard": {
-                    "Company": {
-                        "ScoreHistory": [
-                            {
-                                "date": "",
-                                "domain": "",
-                                "score": ""
-                            }
-                        ]
-                    }
-                }
-            }
-            ]
-        },
-        {
-            "title": "Get Company History Factor Score",
-            "operation": "get_company_history_factor_score",
-            "description": "Retrieve company history factor score from security scorecard.",
-            "annotation": "get_company_history_factor_score",
-            "category": "investigation",
-            "parameters": [
-                 {
-                    "title": "Domain",
-                    "type": "text",
-                    "name": "domain",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:google.com",
-                    "description": "Specify the domain of a company in SecurityScorecard.",
-                    "tooltip": "Specify the domain of a company in SecurityScorecard."
-                }
-            ],
-            "output_schema": [
-                   {
-                    "SecurityScorecard": {
-                        "Company": {
-                            "ScoreHistory": [
-                                {
-                                    "date": "",
-                                    "domain": "",
-                                    "score": ""
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "title": "Get Alert List",
-            "operation": "get_alert_list",
-            "description": "Retrieve list alerts triggered from security scorecard.",
-            "annotation": "get_alert_list",
-            "category": "investigation",
-            "parameters": [
-                 {
-                    "title": "Email ID",
-                    "type": "text",
-                    "name": "email_id",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:abc@gmail.com",
-                    "description": "Specify the user email id in SecurityScorecard.",
-                    "tooltip": "Specify the user email id in SecurityScorecard."
-                }
-            ],
-            "output_schema": [
-                   {
-                          "entries": [],
-                          "page": "",
-                          "size": "",
-                          "sizes_by_category": {
-                                "standard": {
-                                  "total": "",
-                                  "unread": ""
-                                },
-                                "prioritized": {
-                                  "total": "",
-                                  "unread": ""
-                                },
-                                "customer_contacts": {
-                                  "total": "",
-                                  "unread": ""
-                                },
-                                "queued": {
-                                  "total": "",
-                                  "unread": ""
-                                }
-                          }
-                   }
-            ]
-        },
-        {
-            "title": "Get Ransomware Details  ",
-            "operation": "get_ransomware_details",
-            "description": "Retrieve ransomware details triggered from security scorecard.",
-            "annotation": "get_ransomware_details",
-            "category": "investigation",
-            "parameters": [
-                 {
-                    "title": "Ransomware ID",
-                    "type": "text",
-                    "name": "ransomware_id",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "value": "",
-                    "placeholder": "e.g:adrfkssferevchjjj3774bb",
-                    "description": "Specify the user ransomware id in SecurityScorecard.",
-                    "tooltip": "Specify the user ransomware id in SecurityScorecard."
-                }
-            ],
-            "output_schema": [
-                {
-                    "date": "",
-                    "domain": "",
-                    "score": ""
-                }
-            ]
-        }
+  "name": "security-scorecard",
+  "version": "1.0.0",
+  "label": "SecurityScorecard",
+  "description": "Security Scorecard Platform combines several threat intelligence sources to provide in-depth insights on threat hosts and attack infrastructure.This connector facilitates automated operations to pull off real-time host configuration analysis to come up with actionable threat intelligence that is vital in detection, mitigation, and remediation.",
+  "publisher": "spryIQ.co",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "cs_compatible": true,
+  "cs_approved": false,
+  "category": "Threat Intelligence",
+  "help_online": "https://github.com/jitesh-spryiq/connector-security-scorecard/blob/develop/docs/SecurityScorecardConnectorDoc.md",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "type": "text",
+        "description": "Specify the URL of the security scorecard server to connect and perform automated operations.",
+        "tooltip": "Specify the URL of the security scorecard server to connect and perform automated operations.",
+        "name": "server_url",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "value": "",
+        "placeholder": "e.g:https://api.securityscorecard.io or api.securityscorecard.io"
+      },
+      {
+        "title": "API key",
+        "type": "password",
+        "description": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
+        "tooltip": "Specify the API key to access the endpoint to which you will connect and perform the automated operations.",
+        "name": "api_key",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "value": "",
+        "placeholder": "e.g:yMlmghnnE9CApiAwLNHJFlN0VofZVnUnaaaHT"
+      }
     ]
+  },
+  "operations": [
+    {
+      "title": "Get All Companies Portfolio",
+      "operation": "get_all_companies_portfolio",
+      "description": "Retrieves a list companies of from security scorecard.",
+      "annotation": "get_all_companies_portfolio",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Portfolio ID",
+          "type": "text",
+          "name": "portfolio_id",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:55e448c4e4b0c986fd66ff33312",
+          "description": "Specify the portfolio unique id retrieve.",
+          "tooltip": "Specify the portfolio unique id retrieve."
+        }
+      ],
+      "output_schema": [
+        {
+          "SecurityScorecard": {
+            "Portfolio": {
+              "Company": {
+                "domain": "",
+                "grade": "",
+                "grade_url": "",
+                "industry": "",
+                "is_custom_vendor": "",
+                "last30days_score_change": "",
+                "name": "",
+                "score": "",
+                "size": ""
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Get List of Portfolio",
+      "operation": "get_list_of_portfolio",
+      "description": "Retrieves a list portfolio of from security scorecard.",
+      "annotation": "get_list_of_portfolio",
+      "category": "investigation",
+      "parameters": [],
+      "output_schema": [
+        {
+          "id": "",
+          "name": "",
+          "privacy": "",
+          "read_only": "",
+          "created_at": "",
+          "is_public": ""
+        }
+      ]
+    },
+    {
+      "title": "Get Company Score",
+      "operation": "get_company_score",
+      "description": "Retrieve company overall score from security scorecard.",
+      "annotation": "get_company_score",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Domain",
+          "type": "text",
+          "name": "domain",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:google.com",
+          "description": "Specify the domain of a company in SecurityScorecard.",
+          "tooltip": "Specify the domain of a company  in SecurityScorecard."
+        }
+      ],
+      "output_schema": [
+        {
+          "SecurityScorecard": {
+            "Company": {
+              "Score": {
+                "created_at": "",
+                "domain": "",
+                "grade": "",
+                "grade_url": "",
+                "industry": "",
+                "last30day_score_change": "",
+                "name": "",
+                "score": "",
+                "size": "",
+                "tags": []
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Get Company Factor Score",
+      "operation": "get_company_factor_score",
+      "description": "Retrieve company factor score from security scorecard.",
+      "annotation": "get_company_factor_score",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Domain",
+          "type": "text",
+          "name": "domain",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:google.com",
+          "description": "Specify the domain of a company in Security Scorecard.",
+          "tooltip": "Specify the domain of a company in SecurityScorecard."
+        }
+      ],
+      "output_schema": [
+        {
+          "SecurityScorecard": {
+            "Company": {
+              "Factor": [
+                {
+                  "grade": "",
+                  "grade_url": "",
+                  "issue_summary": [
+                    {
+                      "count": "",
+                      "detail_url": "",
+                      "severity": "",
+                      "total_score_impact": "",
+                      "type": ""
+                    }
+                  ],
+                  "name": "",
+                  "score": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Get Company History Score",
+      "operation": "get_company_history_score",
+      "description": "Retrieve company history score from security scorecard.",
+      "annotation": "get_company_history_score",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Domain",
+          "type": "text",
+          "name": "domain",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:google.com",
+          "description": "Specify the domain of a company in SecurityScorecard.",
+          "tooltip": "Specify the domain of a company in SecurityScorecard."
+        }
+      ],
+      "output_schema": [
+        {
+          "SecurityScorecard": {
+            "Company": {
+              "ScoreHistory": [
+                {
+                  "date": "",
+                  "domain": "",
+                  "score": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Get Company History Factor Score",
+      "operation": "get_company_history_factor_score",
+      "description": "Retrieve company history factor score from security scorecard.",
+      "annotation": "get_company_history_factor_score",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Domain",
+          "type": "text",
+          "name": "domain",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:google.com",
+          "description": "Specify the domain of a company in SecurityScorecard.",
+          "tooltip": "Specify the domain of a company in SecurityScorecard."
+        }
+      ],
+      "output_schema": [
+        {
+          "SecurityScorecard": {
+            "Company": {
+              "ScoreHistory": [
+                {
+                  "date": "",
+                  "domain": "",
+                  "score": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Get Alert List",
+      "operation": "get_alert_list",
+      "description": "Retrieve list alerts triggered from security scorecard.",
+      "annotation": "get_alert_list",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Email ID",
+          "type": "text",
+          "name": "email_id",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:abc@gmail.com",
+          "description": "Specify the user email id in SecurityScorecard.",
+          "tooltip": "Specify the user email id in SecurityScorecard."
+        }
+      ],
+      "output_schema": [
+        {
+          "entries": [],
+          "page": "",
+          "size": "",
+          "sizes_by_category": {
+            "standard": {
+              "total": "",
+              "unread": ""
+            },
+            "prioritized": {
+              "total": "",
+              "unread": ""
+            },
+            "customer_contacts": {
+              "total": "",
+              "unread": ""
+            },
+            "queued": {
+              "total": "",
+              "unread": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Get Ransomware Details  ",
+      "operation": "get_ransomware_details",
+      "description": "Retrieve ransomware details triggered from security scorecard.",
+      "annotation": "get_ransomware_details",
+      "category": "investigation",
+      "parameters": [
+        {
+          "title": "Ransomware ID",
+          "type": "text",
+          "name": "ransomware_id",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "placeholder": "e.g:adrfkssferevchjjj3774bb",
+          "description": "Specify the user ransomware id in SecurityScorecard.",
+          "tooltip": "Specify the user ransomware id in SecurityScorecard."
+        }
+      ],
+      "output_schema": [
+        {
+          "date": "",
+          "domain": "",
+          "score": ""
+        }
+      ]
+    }
+  ]
 }
